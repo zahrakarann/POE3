@@ -1,0 +1,34 @@
+public class Main {
+    public static void main(String[] args) {
+        ManagerTask managerTask = new ManagerTask();
+
+        // Populate the arrays with test data
+        managerTask.addTask("Mike Smith", "Create Login", 1, 5, "To Do");
+        managerTask.addTask("Edward Harrison", "Create Add Features", 2, 8, "Doing");
+        managerTask.addTask("Samantha Paulson", "Create Reports", 3, 2, "Done");
+        managerTask.addTask("Glenda Oberholzer", "Add Arrays", 4, 11, "To Do");
+
+        // Perform unit tests
+        managerTask.displayDoneTasks();
+
+        System.out.println("-----");
+
+        managerTask.displayLongestDurationTask();
+
+        System.out.println("-----");
+
+        managerTask.searchTaskByName("Create Reports");
+
+        System.out.println("-----");
+
+        managerTask.searchTasksByDeveloper("Mike Smith");
+
+        System.out.println("-----");
+
+        managerTask.deleteTask("Create Login");
+
+        System.out.println("-----");
+
+        managerTask.displayAllTasks();
+    }
+}
