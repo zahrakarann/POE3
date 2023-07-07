@@ -1,0 +1,100 @@
+     import java.util.ArrayList;
+import java.util.List;
+
+class ManagerTask {
+    private List<String> developers;
+    private List<String> taskNames;
+    private List<Integer> taskIds;
+    private List<Integer> taskDurations;
+    private List<String> taskStatuses;
+
+    public ManagerTask() {
+        developers = new ArrayList<>();
+        taskNames = new ArrayList<>();
+        taskIds = new ArrayList<>();
+        taskDurations = new ArrayList<>();
+        taskStatuses = new ArrayList<>();
+    }
+
+    public void addTask(String developer, String taskName, int taskId, int taskDuration, String taskStatus) {
+        developers.add(developer);
+        taskNames.add(taskName);
+        taskIds.add(taskId);
+        taskDurations.add(taskDuration);
+        taskStatuses.add(taskStatus);
+    }
+
+    public void displayDoneTasks() {
+        for (int i = 0; i < taskStatuses.size(); i++) {
+            if (taskStatuses.get(i).equals("Done")) {
+                System.out.println("Developer: " + developers.get(i));
+                System.out.println("Task Name: " + taskNames.get(i));
+                System.out.println("Task Duration: " + taskDurations.get(i));
+                System.out.println();
+            }
+        }
+    }
+
+    public void displayLongestDurationTask() {
+        int maxDuration = Integer.MIN_VALUE;
+        int maxIndex = -1;
+
+        for (int i = 0; i < taskDurations.size(); i++) {
+            if (taskDurations.get(i) > maxDuration) {
+                maxDuration = taskDurations.get(i);
+                maxIndex = i;
+            }
+        }
+
+        if (maxIndex != -1) {
+            System.out.println("Developer: " + developers.get(maxIndex));
+            System.out.println("Task Duration: " + maxDuration);
+            System.out.println();
+        }
+    }
+
+    public void searchTaskByName(String taskName) {
+        for (int i = 0; i < taskNames.size(); i++) {
+            if (taskNames.get(i).equals(taskName)) {
+                System.out.println("Task Name: " + taskNames.get(i));
+                System.out.println("Developer: " + developers.get(i));
+                System.out.println("Task Status: " + taskStatuses.get(i));
+                System.out.println();
+            }
+        }
+    }
+
+    public void searchTasksByDeveloper(String developer) {
+        for (int i = 0; i < developers.size(); i++) {
+            if (developers.get(i).equals(developer)) {
+                System.out.println("Task Name: " + taskNames.get(i));
+                System.out.println("Task Status: " + taskStatuses.get(i));
+                System.out.println();
+            }
+        }
+    }
+
+    public void deleteTask(String taskName) {
+        int index = taskNames.indexOf(taskName);
+        if (index != -1) {
+            developers.remove(index);
+            taskNames.remove(index);
+            taskIds.remove(index);
+            taskDurations.remove(index);
+            taskStatuses.remove(index);
+        }
+    }
+
+    public void displayAllTasks() {
+        for (int i = 0; i < developers.size(); i++) {
+            System.out.println("Developer: " + developers.get(i));
+            System.out.println("Task Name: " + taskNames.get(i));
+            System.out.println("Task ID: " + taskIds.get(i));
+            System.out.println("Task Duration: " + taskDurations.get(i));
+            System.out.println("Task Status: " + taskStatuses.get(i));
+            System.out.println();
+       
+//(Farrell, 2017)
+//Farrell, J. (2017), in Programming Logic and Design: Comprehensive. 9th edition Cambridge, Mass. & b Course Technology. }
+    }
+}
